@@ -9,24 +9,23 @@ fun main() {
     val lancheVeg = Produto(8.50, "Lanche Veg")
     val refrigerante = Produto(4.50, "Refrigerante")
     val suco = Produto(4.50, "Suco")
+    var coca = Produto(3.00,"Coca - Cola")
 
     val combo1 = ComboSimples("Combo Kids", batataPequena, lancheKids, suco)
     val combo2 = ComboSimples("Combo Simples", batataGrande, lanche, refrigerante)
     val combo3 = ComboSimples("Combo Veg", batataGrande, lancheVeg, suco)
+    var combo4 = ComboSimples("Combo do dia",lanche,coca)
 
-    val comboFam1 = ComboFamiliar("Combo Família", combo1, combo2, combo3)
+    val comboFam1 = ComboFamiliar("Combo Família", combo1,combo2)
 
-    val carrinho = Carrinho()
-
-    carrinho.addProdutos(batataGrande, lanche)
-    carrinho.addCombos(combo1)
+    var carrinho = Carrinho()
+    println("------Carrinho-----")
+    carrinho.addProduto(lanche)
+    carrinho.listProduto.forEach{ println(" - $it")}
     carrinho.addComboFamiliar(comboFam1)
-
-    println("Valor do combo: R$" + combo1.retornoPreco())
-    println("Valor do combo familiar: R$" + comboFam1.retornoPreco())
-    println("Valor do produto: R$" + batataPequena.retornoPreco())
-    println("Valor total da compra: R$" + carrinho.valorDaCompra())
-
+    carrinho.listComboFamiliar.forEach{ println("- $it")}
+    print("Total da compra: ")
+    println( carrinho.calculaResultado())
 
 
 }

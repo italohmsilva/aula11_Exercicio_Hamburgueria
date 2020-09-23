@@ -1,19 +1,13 @@
 package br.com.digitalhouse.hamburgueria
 
-class ComboSimples(var nome : String, vararg listProdutosCombo: Produto) {
-    var precoCombo = listProdutosCombo.sumByDouble{it.preco}
-    var precoPromocional: Double = precoCombo*0.9
-    //var listProdutosCombo = arrayListOf<Produto>()
+class ComboSimples(var nome:String,vararg listaCombo:Produto) {
+    var precoCombo = listaCombo.sumByDouble{it.preco*0.9}
 
-    //fun addProdutosCombo(vararg produtos: Produto) {
-      //  listProdutosCombo.addAll(produtos)
-    //}
+    //var precoPromocional :Double = 0.9
 
-    fun retornoPreco():Double {
-        return precoPromocional
-    }
+
 
     override fun toString(): String {
-        return "br.com.digitalhouse.hamburgueria.Produto(preco=$precoPromocional, nome='$nome')"
+        return "Nome: $nome Preço = $precoCombo"
     }
 }
